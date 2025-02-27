@@ -15,21 +15,12 @@
         body {
             background-color: #0f1923;
             color: #fff;
-            font-size: 16px;
         }
         
-        /* Mobile-first approach */
         header {
             background-color: #1a2735;
             padding: 1rem;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .navbar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
         }
         
         .logo {
@@ -49,18 +40,12 @@
             padding: 0.8rem;
             text-align: center;
             font-size: 0.9rem;
-            line-height: 1.4;
-        }
-        
-        .alert-banner a {
-            color: #fff;
-            font-weight: bold;
-            text-decoration: underline;
         }
         
         .games-container {
             width: 90%;
             margin: 1rem auto;
+            max-width: 1200px;
         }
         
         .section-title {
@@ -68,7 +53,6 @@
             font-size: 1.3rem;
             color: #4ecdc4;
             text-align: center;
-            padding: 0 0.5rem;
         }
         
         .game-grid {
@@ -100,21 +84,6 @@
             margin-bottom: 0.3rem;
         }
         
-        .game-description {
-            color: #adb5bd;
-            font-size: 0.8rem;
-            margin-bottom: 0.7rem;
-            line-height: 1.3;
-        }
-        
-        .game-meta {
-            display: flex;
-            justify-content: space-between;
-            color: #6c757d;
-            font-size: 0.75rem;
-            margin-bottom: 0.7rem;
-        }
-        
         .download-btn {
             display: block;
             width: 100%;
@@ -139,28 +108,6 @@
             margin-top: 2rem;
         }
         
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            list-style: none;
-            margin-bottom: 1rem;
-        }
-        
-        .footer-links li {
-            margin: 0.4rem 0;
-        }
-        
-        .footer-links a {
-            color: #adb5bd;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        
-        .footer-links a:hover {
-            color: #4ecdc4;
-        }
-        
         .copyright {
             color: #6c757d;
             font-size: 0.8rem;
@@ -168,106 +115,22 @@
         
         /* Tablet styles */
         @media (min-width: 481px) {
-            .logo {
-                font-size: 1.8rem;
-            }
-            
-            .alert-banner {
-                font-size: 1rem;
-                padding: 1rem;
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-                margin-bottom: 1.2rem;
-            }
-            
             .game-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1.2rem;
-            }
-            
-            .game-image {
-                height: 150px;
-            }
-            
-            .game-info {
-                padding: 1rem;
-            }
-            
-            .footer-links {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .footer-links li {
-                margin: 0.4rem 0.8rem;
             }
         }
         
         /* Desktop styles */
         @media (min-width: 769px) {
-            body {
-                font-size: 16px;
-            }
-            
-            header {
-                padding: 1.5rem;
-            }
-            
-            .logo {
-                font-size: 2rem;
-            }
-            
-            .alert-banner {
-                font-size: 1.1rem;
-                padding: 1.2rem;
-            }
-            
-            .games-container {
-                margin: 2rem auto;
-                width: 90%;
-                max-width: 1200px;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-                margin-bottom: 1.5rem;
-            }
-            
             .game-grid {
                 grid-template-columns: repeat(4, 1fr);
-                gap: 1.5rem;
-            }
-            
-            .game-image {
-                height: 150px;
-            }
-            
-            .game-info {
-                padding: 1.2rem;
-            }
-            
-            .game-title {
-                font-size: 1.2rem;
-            }
-            
-            .game-description {
-                font-size: 0.9rem;
-            }
-            
-            .footer-links li {
-                margin: 0 1rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="logo">Sweeps<span>&nbsp;Nia</span></div>
-        </nav>
+        <div class="logo">Sweeps<span>&nbsp;Nia</span></div>
     </header>
     
     <div class="alert-banner">
@@ -341,8 +204,6 @@
                 </div>
             </div>
         </div>
-        
-      
     </main>
     
     <footer>
