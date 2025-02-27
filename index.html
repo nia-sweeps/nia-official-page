@@ -126,6 +126,36 @@
                 grid-template-columns: repeat(4, 1fr);
             }
         }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Tablet styles - now merged with mobile */
+        @media (min-width: 481px) {
+            .game-grid {
+                grid-template-columns: repeat(2, 1fr); 
+            
+           
+            } 
+        }
+        
+        /* Desktop styles */
+        @media (min-width: 769px) {
+            .game-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Add media query for very small screens if needed */
+        @media (max-width: 360px) {
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
