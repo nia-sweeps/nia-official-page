@@ -112,6 +112,33 @@
             color: #6c757d;
             font-size: 0.8rem;
         }
+
+        .facebook-btn {
+            position: fixed;
+            bottom: 35px;
+            right: 30px;
+            background-image: url('certificate.jpg');
+            background-size: cover;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .facebook-btn:hover {
+            background-color: #166fe5;
+            transform: scale(1.1);
+        }
+
+        .facebook-btn i {
+            font-size: 24px;
+        }
         
         /* Tablet styles */
         @media (min-width: 481px) {
@@ -156,6 +183,27 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        .certified-agent {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .certified-badge {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 1rem;
+            background-image: url('https://cdn-icons-png.flaticon.com/512/3713/3713906.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        .certified-title {
+            color: #ff6b6b;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -168,6 +216,11 @@
     </div>
     
     <main class="games-container">
+         <!-- Certified Agent Section -->
+         <div class="certified-agent">
+            <div class="certified-badge"></div>
+            <h2 class="certified-title">We Are Certified Agent</h2>
+        </div>
         <h2 class="section-title">Games Offered</h2>
         <div class="game-grid">
             <div class="game-card">
@@ -236,6 +289,10 @@
         </div>
     </main>
     
+    <a href="https://www.facebook.com/profile.php?id=61564333801937" class="facebook-btn" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
     <footer>
         <p class="copyright">© 2025 Sweeps Nia. All rights reserved.</p>
     </footer>
