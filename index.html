@@ -1,300 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sweeps Nia - Your Ultimate Gaming Platform</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #0f1923;
-            color: #fff;
-        }
-        
-        header {
-            background-color: #1a2735;
-            padding: 1rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #ff6b6b;
-            text-align: center;
-        }
-        
-        .logo span {
-            color: #4ecdc4;
-        }
-        
-        .alert-banner {
-            background-color: #ff6b6b;
-            color: #fff;
-            padding: 0.8rem;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        
-        .games-container {
-            width: 90%;
-            margin: 1rem auto;
-            max-width: 1200px;
-        }
-        
-        .section-title {
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            color: #4ecdc4;
-            text-align: center;
-        }
-        
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #0f1923;
+        color: #fff;
+      }
+
+      header {
+        background-color: #1a2735;
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #ff6b6b;
+        text-align: center;
+      }
+
+      .logo span {
+        color: #4ecdc4;
+      }
+
+      .alert-banner {
+        background-color: #ff6b6b;
+        color: #fff;
+        padding: 0.8rem;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+
+      .games-container {
+        width: 90%;
+        margin: 1rem auto;
+        max-width: 1200px;
+      }
+
+      .section-title {
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        color: #4ecdc4;
+        text-align: center;
+      }
+
+      .game-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .game-card {
+        background-color: #1a2735;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .game-image {
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .game-info {
+        padding: 0.8rem;
+      }
+
+      .game-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .download-btn {
+        display: block;
+        width: 100%;
+        padding: 0.7rem;
+        background-color: #4ecdc4;
+        color: #0f1923;
+        text-align: center;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+
+      .download-btn:hover {
+        background-color: #ff6b6b;
+      }
+
+      footer {
+        background-color: #1a2735;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      .copyright {
+        color: #6c757d;
+        font-size: 0.8rem;
+      }
+
+      .facebook-btn {
+        position: fixed;
+        bottom: 35px;
+        right: 30px;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/768px-2021_Facebook_icon.svg.png");
+        background-size: cover;
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .facebook-btn:hover {
+        background-color: #166fe5;
+        transform: scale(1.1);
+      }
+
+      .facebook-btn i {
+        font-size: 24px;
+      }
+
+      /* Tablet styles */
+      @media (min-width: 481px) {
         .game-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            margin-bottom: 2rem;
+          grid-template-columns: repeat(2, 1fr);
         }
-        
-        .game-card {
-            background-color: #1a2735;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        
-        .game-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .game-info {
-            padding: 0.8rem;
-        }
-        
-        .game-title {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-        }
-        
-        .download-btn {
-            display: block;
-            width: 100%;
-            padding: 0.7rem;
-            background-color: #4ecdc4;
-            color: #0f1923;
-            text-align: center;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        
-        .download-btn:hover {
-            background-color: #ff6b6b;
-        }
-        
-        footer {
-            background-color: #1a2735;
-            padding: 1.5rem 1rem;
-            text-align: center;
-            margin-top: 2rem;
-        }
-        
-        .copyright {
-            color: #6c757d;
-            font-size: 0.8rem;
-        }
+      }
 
-        .facebook-btn {
-            position: fixed;
-            bottom: 35px;
-            right: 30px;
-            background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/768px-2021_Facebook_icon.svg.png');
-            background-size: cover;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .facebook-btn:hover {
-            background-color: #166fe5;
-            transform: scale(1.1);
-        }
-
-        .facebook-btn i {
-            font-size: 24px;
-        }
-        
-        /* Tablet styles */
-        @media (min-width: 481px) {
-            .game-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        /* Desktop styles */
-        @media (min-width: 769px) {
-            .game-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
+      /* Desktop styles */
+      @media (min-width: 769px) {
         .game-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 1rem;
-            margin-bottom: 2rem;
+          grid-template-columns: repeat(4, 1fr);
         }
-        
-        /* Tablet styles - now merged with mobile */
-        @media (min-width: 481px) {
-            .game-grid {
-                grid-template-columns: repeat(2, 1fr); 
-            
-           
-            } 
-        }
-        
-        /* Desktop styles */
-        @media (min-width: 769px) {
-            .game-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
+      }
 
-        /* Add media query for very small screens if needed */
-        @media (max-width: 360px) {
-            .game-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+      .game-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
 
-        .certified-agent {
-            text-align: center;
-            margin: 2rem 0;
+      /* Tablet styles - now merged with mobile */
+      @media (min-width: 481px) {
+        .game-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
+      }
 
-        .certified-badge {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 1rem;
-            background-image: url('certificate.jpg');
-            background-size: contain;
-            background-repeat: no-repeat;
+      /* Desktop styles */
+      @media (min-width: 769px) {
+        .game-grid {
+          grid-template-columns: repeat(4, 1fr);
         }
+      }
 
-        .certified-title {
-            color: #ff6b6b;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      /* Add media query for very small screens if needed */
+      @media (max-width: 360px) {
+        .game-grid {
+          grid-template-columns: 1fr;
         }
+      }
+
+      .certified-agent {
+        text-align: center;
+        margin: 2rem 0;
+      }
+
+      .certified-badge {
+        width: 280px;
+        height: 200px;
+        margin: auto;
+        background-image: url("certificate.jpg");
+        background-size: cover;
+      }
+
+      .certified-title {
+        color: #ff6b6b;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding: 0.5rem 0;
+        position: relative;
+      }
+
+      .certified-title::after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 3px;
+        background: #4ecdc4;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="logo">Sweeps<span>&nbsp;Nia</span></div>
+      <div class="logo">Sweeps<span>&nbsp;Nia</span></div>
     </header>
-    
+
     <div class="alert-banner">
-        IMPORTANT: If our Facebook page ever shuts down, you can always find our latest communication channels (Telegram, Discord, etc.) on this website. Bookmark this page!
+      IMPORTANT: If our Facebook page ever shuts down, you can always find our
+      latest communication channels (Telegram, Discord, etc.) on this website.
+      Bookmark this page!
     </div>
-    
+
     <main class="games-container">
-         <!-- Certified Agent Section -->
-         <div class="certified-agent">
-            <div class="certified-badge"></div>
-            <h2 class="certified-title">We Are Certified Agent</h2>
+      <!-- Certified Agent Section -->
+      <div class="certified-agent">
+        <div class="certified-badge"></div>
+        <h2 class="certified-title">We Are Certified Agent</h2>
+      </div>
+      <h2 class="section-title">Games Offered</h2>
+      <div class="game-grid">
+        <div class="game-card">
+          <div
+            class="game-image"
+            style="
+              background-image: url('https://play-lh.googleusercontent.com/PwFrgAe-h5P53OX31cxzjtjnCzu3eTUbIRUZgs3M8U2ivk-11mj7KJ17g9pFHTRKlj8');
+            "
+          ></div>
+          <div class="game-info">
+            <h3 class="game-title">Juwa</h3>
+            <a href="https://dl.juwa777.com" class="download-btn"
+              >Download Now</a
+            >
+          </div>
         </div>
-        <h2 class="section-title">Games Offered</h2>
-        <div class="game-grid">
-            <div class="game-card">
-                <div class="game-image" style="background-image: url('https://play-lh.googleusercontent.com/PwFrgAe-h5P53OX31cxzjtjnCzu3eTUbIRUZgs3M8U2ivk-11mj7KJ17g9pFHTRKlj8');"></div>
-                <div class="game-info">
-                    <h3 class="game-title">Juwa</h3>
-                    <a href="https://dl.juwa777.com" class="download-btn">Download Now</a>
-                </div>
-            </div>
-            
-            <div class="game-card">
-                <div class="game-image" style="background-image: url('https://s3-eu-west-1.amazonaws.com/tpd/logos/63bdca3f037b1e83ff0f10f4/0x0.png');"></div>
-                <div class="game-info">
-                    <h3 class="game-title">Game Vault</h3>
-                    <a href="https://download.gamevault999.com" class="download-btn">Download Now</a>
-                </div>
-            </div>
-            
-            <div class="game-card">
-                <div class="game-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkiBWYv06UVyrUKzyEwH0tvn7YG9hsC4JdpQ&s');"></div>
-                <div class="game-info">
-                    <h3 class="game-title">Mega Spin</h3>
-                    <a href="https://www.megaspinsweeps.com/index.html" class="download-btn">Download Now</a>
-                </div>
-            </div>
-            
-            <div class="game-card">
-                <div class="game-image" style="background-image: url('https://i.ytimg.com/vi/DaJ3qMax9yw/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGDMgEyh_MA8=&rs=AOn4CLCH6Tr6mg_MzuP8wrcSI7XjDsf57Q');"></div>
-                <div class="game-info">
-                    <h3 class="game-title">Cash Frenzy</h3>
-                    <a href="https://www.cashfrenzy777.com" class="download-btn">Download Now</a>
-                </div>
-            </div>
 
-            <div class="game-card">
-                <div class="game-image" style="background-image: url('https://pandamaster.cc/wp-content/uploads/2024/05/Selec-500-x-300-px-600-x-300-px-600-x-250-px-500-x-200-px-500-x-500-px-1.webp');"></div>
-                <div class="game-info">
-                    <h3 class="game-title">Panda Master</h3>
-                    <a href="https://pandamaster.vip:8888" class="download-btn">Download Now</a>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <div class="game-image" style="background-image: url('https://s3-eu-west-1.amazonaws.com/tpd/logos/63bdd27b5a1748a5ecb9a78a/0x0.png');"></div>
-                <div class="game-info">
-                    <h3 class="game-title">Vegas Sweeps</h3>
-                    <a href="https://m.lasvegassweeps.com" class="download-btn">Download Now</a>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <div class="game-image" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUaWT56m_fjXmQEhfhLoJvxm70yLzSq77kLA&s');"></div>
-                <div class="game-info">
-                    <h3 class="game-title">Sirius</h3>
-                    <a href="https://m.gamesirius999.com" class="download-btn">Download Now</a>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <div class="game-image" style="background-image: url('https://www.gameroom777.com/static/wap/images/logo.png');"></div>
-                <div class="game-info">
-                    <h3 class="game-title">Gameroom</h3>
-                    <a href="https://www.gameroom777.com/m" class="download-btn">Download Now</a>
-                </div>
-            </div>
+        <div class="game-card">
+          <div
+            class="game-image"
+            style="
+              background-image: url('https://s3-eu-west-1.amazonaws.com/tpd/logos/63bdca3f037b1e83ff0f10f4/0x0.png');
+            "
+          ></div>
+          <div class="game-info">
+            <h3 class="game-title">Game Vault</h3>
+            <a href="https://download.gamevault999.com" class="download-btn"
+              >Download Now</a
+            >
+          </div>
         </div>
+
+        <div class="game-card">
+          <div
+            class="game-image"
+            style="
+              background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkiBWYv06UVyrUKzyEwH0tvn7YG9hsC4JdpQ&s');
+            "
+          ></div>
+          <div class="game-info">
+            <h3 class="game-title">Mega Spin</h3>
+            <a
+              href="https://www.megaspinsweeps.com/index.html"
+              class="download-btn"
+              >Download Now</a
+            >
+          </div>
+        </div>
+
+        <div class="game-card">
+          <div
+            class="game-image"
+            style="
+              background-image: url('https://i.ytimg.com/vi/DaJ3qMax9yw/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGDMgEyh_MA8=&rs=AOn4CLCH6Tr6mg_MzuP8wrcSI7XjDsf57Q');
+            "
+          ></div>
+          <div class="game-info">
+            <h3 class="game-title">Cash Frenzy</h3>
+            <a href="https://www.cashfrenzy777.com" class="download-btn"
+              >Download Now</a
+            >
+          </div>
+        </div>
+
+        <div class="game-card">
+          <div
+            class="game-image"
+            style="
+              background-image: url('https://pandamaster.cc/wp-content/uploads/2024/05/Selec-500-x-300-px-600-x-300-px-600-x-250-px-500-x-200-px-500-x-500-px-1.webp');
+            "
+          ></div>
+          <div class="game-info">
+            <h3 class="game-title">Panda Master</h3>
+            <a href="https://pandamaster.vip:8888" class="download-btn"
+              >Download Now</a
+            >
+          </div>
+        </div>
+
+        <div class="game-card">
+          <div
+            class="game-image"
+            style="
+              background-image: url('https://s3-eu-west-1.amazonaws.com/tpd/logos/63bdd27b5a1748a5ecb9a78a/0x0.png');
+            "
+          ></div>
+          <div class="game-info">
+            <h3 class="game-title">Vegas Sweeps</h3>
+            <a href="https://m.lasvegassweeps.com" class="download-btn"
+              >Download Now</a
+            >
+          </div>
+        </div>
+
+        <div class="game-card">
+          <div
+            class="game-image"
+            style="
+              background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUaWT56m_fjXmQEhfhLoJvxm70yLzSq77kLA&s');
+            "
+          ></div>
+          <div class="game-info">
+            <h3 class="game-title">Sirius</h3>
+            <a href="https://m.gamesirius999.com" class="download-btn"
+              >Download Now</a
+            >
+          </div>
+        </div>
+
+        <div class="game-card">
+          <div
+            class="game-image"
+            style="
+              background-image: url('https://www.gameroom777.com/static/wap/images/logo.png');
+            "
+          ></div>
+          <div class="game-info">
+            <h3 class="game-title">Gameroom</h3>
+            <a href="https://www.gameroom777.com/m" class="download-btn"
+              >Download Now</a
+            >
+          </div>
+        </div>
+      </div>
     </main>
-    
-    <a href="https://www.facebook.com/profile.php?id=61564333801937" class="facebook-btn" target="_blank">
-        <i class="fab fa-facebook-f"></i>
+
+    <a href="YOUR_FACEBOOK_PAGE_URL" class="facebook-btn" target="_blank">
+      <i class="fab fa-facebook-f"></i>
     </a>
 
     <footer>
-        <p class="copyright">© 2025 Sweeps Nia. All rights reserved.</p>
+      <p class="copyright">© 2025 Sweeps Nia. All rights reserved.</p>
     </footer>
-</body>
+  </body>
 </html>
