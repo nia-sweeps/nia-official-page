@@ -113,27 +113,72 @@
         font-size: 0.8rem;
       }
 
+      /* Updated Facebook button with animation */
       .facebook-btn {
         position: fixed;
         bottom: 35px;
         right: 30px;
         background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/768px-2021_Facebook_icon.svg.png");
         background-size: cover;
-        width: 58px;
-        height: 58px;
-        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         text-decoration: none;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        border: 3px solid rgb(70, 108, 156);
         transition: all 0.3s ease;
         z-index: 1000;
+        animation: pulse 2s infinite;
+      }
+
+      /* Ripple effect container */
+      .facebook-btn::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        z-index: -1;
+        animation: ripple 2s infinite;
+        box-shadow: 0 0 0 0 rgba(70, 108, 156, 0.7);
+      }
+
+      /* Ripple animation */
+      @keyframes ripple {
+        0% {
+          box-shadow: 0 0 0 0 rgba(70, 108, 156, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 15px rgba(70, 108, 156, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(70, 108, 156, 0);
+        }
+      }
+
+      /* Subtle pulse animation */
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.08);
+        }
+        100% {
+          transform: scale(1);
+        }
       }
 
       .facebook-btn:hover {
-        background-color: #166fe5;
         transform: scale(1.1);
+        animation: none; /* Stop animation on hover */
+      }
+
+      .facebook-btn:active {
+        transform: scale(0.95);
       }
 
       .facebook-btn i {
@@ -187,6 +232,7 @@
         margin: 2rem 0;
       }
 
+      /* Updated certificate badge with floating animation */
       .certified-badge {
         width: 280px;
         height: 200px;
@@ -194,6 +240,29 @@
         border-radius: 15px;
         background-image: url("certificate.jpg");
         background-size: cover;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        animation: float 4s ease-in-out infinite;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Floating animation for certificate */
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .certified-badge:hover {
+        animation: none;
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
       }
 
       .certified-title {
@@ -217,11 +286,68 @@
         width: 100px;
         height: 3px;
         background: #4ecdc4;
-        bottom: 0;
+        top: 50px;
         left: 50%;
         transform: translateX(-50%);
         border-radius: 2px;
       }
+
+      /* Modal styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.9);
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-content {
+        display: block;
+        max-width: 90%;
+        max-height: 90%;
+        margin: auto;
+        border-radius: 8px;
+      }
+
+      .close-modal {
+        position: absolute;
+        top: 20px;
+        right: 25px;
+        color: #f1f1f1;
+        font-size: 35px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 2001;
+      }
+
+      .close-modal:hover,
+      .close-modal:focus {
+        color: #ff6b6b;
+        text-decoration: none;
+      }
+
+      .click-enlarge {
+  color: #4ecdc4;
+  font-size: 0.8rem;
+  text-align: center;
+  margin: 0.5rem 0;
+  opacity: 0.9;
+  font-style: italic;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  animation: fadePulse 2s infinite;
+}
+
+@keyframes fadePulse {
+  0% { opacity: 0.7; }
+  50% { opacity: 1; }
+  100% { opacity: 0.7; }
+}
     </style>
   </head>
   <body>
@@ -238,7 +364,8 @@
     <main class="games-container">
       <!-- Certified Agent Section -->
       <div class="certified-agent">
-        <div class="certified-badge"></div>
+        <div class="certified-badge" id="certificateBadge"></div>
+        <p class="click-enlarge">(click above picture to enlarge)</p>
         <h2 class="certified-title">We Are Certified Agent</h2>
       </div>
       <h2 class="section-title">Games Offered</h2>
@@ -367,6 +494,12 @@
       </div>
     </main>
 
+    <!-- Certificate Modal -->
+    <div id="certificateModal" class="modal">
+      <span class="close-modal">&times;</span>
+      <img src="certificate.jpg" class="modal-content" id="certificateImg">
+    </div>
+
     <a href="https://www.facebook.com/profile.php?id=61564333801937" class="facebook-btn" target="_blank">
       <i class="fab fa-facebook-f"></i>
     </a>
@@ -374,5 +507,32 @@
     <footer>
       <p class="copyright">© 2025 Sweeps Nia. All rights reserved.</p>
     </footer>
+
+    <script>
+      // Get the modal elements
+      const modal = document.getElementById("certificateModal");
+      const certificateBadge = document.getElementById("certificateBadge");
+      const closeModal = document.querySelector(".close-modal");
+      
+      // Open modal when certificate badge is clicked
+      certificateBadge.onclick = function() {
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+      }
+      
+      // Close modal when the X is clicked
+      closeModal.onclick = function() {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto"; // Re-enable scrolling
+      }
+      
+      // Close modal when clicking outside the image
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+          document.body.style.overflow = "auto"; // Re-enable scrolling
+        }
+      }
+    </script>
   </body>
 </html>
